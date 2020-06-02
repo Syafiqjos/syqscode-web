@@ -1,25 +1,28 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Interface</title>
-        <script src="lib/vue.js"></script>
-    </head>
-    <body>
-        <h1>Interface</h1>
-        <div id="nyanko">
-            <h2>@{{ message }}</h2>
-            <div>
-                <p>@{{ paragraph }}</p>
-            <div>
-        </div>
+@extends('layouts.global')
+
+<?php
+    $little = "gta";
+?>
+
+@section('title')
+    Interface Nyanko
+@endsection
+
+@section('content')
+    <h1>Interface</h1>
+    <div id="nyanko">
+        <h2>@{{ message }}</h2>
+        <div>
+            <p>@{{ paragraph }}</p>
+        <div>
         <script type="text/javascript">
             var vm = new Vue({
                 el : '#nyanko',
                 data : {
                     message : 'Nyanko',
-                    paragraph : 'This is a long story actually'
+                    paragraph : "This is a long story actually {{ $little }}"
                 }
             });
         </script>
-    </body>
-</html>
+    </div>
+@endsection

@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::get('/interface', function() {
     return view('interface');
 });
+
+Route::get('/blog/{title}', "BlogController@check");
