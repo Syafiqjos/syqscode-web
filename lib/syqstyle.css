@@ -5,7 +5,7 @@
 
 body {
     background-color: rgb(10,10,10);
-    background-image:  radial-gradient(circle,black,black,black ,rgba(10,10,10,0.72) 0%),url("/lib/sweet.jpg");
+    /* background-image:  radial-gradient(circle,black,black,black ,rgba(10,10,10,0.72) 0%),url("/lib/sweet.jpg"); */
     background-size: cover;
 }
 
@@ -15,6 +15,58 @@ h1 {
 
 h2 {
     font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color:rgb(255,150,150);
+}
+
+.welcome-desc{
+    position:absolute;
+    display: block;
+    top:84vh;
+    width:100vw;
+    font-size:24px
+}
+
+.readmore {
+    margin-top:40px;
+    margin-right: 20px;
+    width:120px;
+}
+
+.readmore h2 {
+    font-family: "SquareFont";
+    font-size: 16px;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    background-color: rgb(80,10,10);
+    color:rgb(255,255,255);
+    padding:10px;
+}
+
+.readmore h2:hover {
+    background-color: rgb(255,255,255);
+    color: rgb(80,10,10);
+}
+
+.divider {
+    display: flex;
+}
+
+.label-parent {
+    position:relative;
+    bottom:0px;
+    margin-top:40px;
+    padding:10px;
+    width:80%;
+}
+
+.label {
+    border-radius:2px;
+    background-color: rgb(50,20,20);
+    padding:5px;
 }
 
 .main-links {
@@ -65,10 +117,101 @@ h2 {
 }
 
 .position-middle-center {
+    background-image:  radial-gradient(circle,black,black,black ,rgba(10,10,10,0.72) 0%),url("/lib/sweet.jpg");
     align-items: center;
     display: flex;
     justify-content: center;
     height: 100vh;
+}
+
+.wrapped {
+    display:flex;
+}
+
+.wrapped-blog {
+    /* background-color: rgb(200,200,200); */
+    font-family: "Roboto";
+    color : rgb(235,235,235);
+    width: 80vw;
+}
+
+.wrapped-blog .page {
+    display:flex;
+    background-color : rgb(0,0,0);
+    border : 1px solid white;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    min-height:200px;
+}
+
+.wrapped-blog .cover {
+    position:relative;
+    top:50%;
+    transform: translate(0,-50%);
+    margin-left: 20px;
+    width : 80%;
+}
+
+.wrapped-blog .page .title {
+    text-align: left;
+    margin-left:0px;
+    margin-top: 20px;
+    padding-right: 20px;
+    font-size: 32px;
+}
+
+.wrapped-blog .page .paragraph {
+    font-size: 16px;
+    text-align: justify;
+    padding-right:20px;
+    margin-left:0px;
+    margin-bottom:10px;
+}
+
+.wrapped-panel {
+    /* background-color: rgb(20, 20,20); */
+    background-color: rgb(10, 10,10);
+    color: white;
+    width: 20vw;
+}
+
+.wrapped-panel .segment {
+    margin-top: 20px;
+}
+
+.wrapped-panel h2 {
+    font-family: "SquareFont";
+    font-size : 16px;
+    letter-spacing: 1px;
+}
+
+.wrapped-panel .segment .subsegment {
+    font-family: "Roboto";
+    font-size:12px;
+    text-align: center;
+    padding-left:10px;
+    padding-right: 12px;
+    background-color: rgb(20,20,20);
+}
+
+.wrapped-panel .segment .subsegment h3 {
+    font-family: "Roboto";
+    font-size : 13px;
+    margin : 14px;
+    padding : 10px;
+    text-align: left;
+    width:200px;
+    padding-bottom: 14px;
+}
+
+.wrapped-panel .segment .subsegment h3::before {
+    font-size: 24px;
+    content:"|  ";
+}
+
+.wrapped-panel .segment .subsegment h3:hover {
+    background-color: rgb(255,255,255);
+    color: rgb(30,10,10);
 }
 
 @media (max-width:700px){
@@ -104,5 +247,65 @@ h2 {
 
     .logo-title-big{
         border: 10px solid rgb(172,172,172);
+    }
+
+    .wrapped-blog .cover {
+        position:relative;
+        top:50%;
+        transform: translate(0,-50%);
+        margin-left: 20px;
+        width : 140%;
+        display: none;
+    }
+
+    .readmore {
+        margin-top:10px;
+        margin-right: 20px;
+        left:5vw;
+        right:0vw;
+    }
+
+    .readmore h2 {
+        position: relative;
+        font-family: "SquareFont";
+        font-size: 12px;
+        width:20vw;
+    }
+
+    .label-parent {
+        position: relative;
+        margin-top:0px;
+        margin-left: -28vw;
+    }
+
+    .label {
+        font-size: 12px;
+    }
+
+    .wrapped-blog {
+        width: 100vw;
+    }
+
+    .wrapped-blog .page .title {
+        margin-left: -26vw;
+        margin-top: 24px;
+        margin-bottom: -20px;
+        padding-right: 20px;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .wrapped-blog .page .paragraph {
+        margin-left: -26vw;
+        font-size: 16px;
+        margin-top:40px;
+    }
+
+    .wrapped-panel{
+        display: none;
+    }
+
+    .welcome-desc{
+        top:80vh;
     }
 }
