@@ -22,29 +22,31 @@
                 <span class="sub-links"><a href="blog/san">About Me</a></span>
             </div>
         </div>
-        <div class="welcome-desc"><h2 style="color: white;font-family: 'SquareFont';letter-spacing:4px;">Welcome to The Art of Code</h2></div>
+        <div class="welcome-desc"><h2 style="color: white;font-family: 'SquareFont';letter-spacing:4px;">@{{desc}}</h2></div>
     @else
-        <div class="logo-title-mini logo-title-small" style="display: flex;">
-            <h1 v-on:click="anim_encode()" style="margin:0px;font-size: 40px;"> [@{{title}}] </h1>
-            <div style="display: flex;margin-left:100px; color:rgb(172,172,172);">
-                <a class="header-link" href="/tags/technologies"><h2 style="padding-left: 20px;padding-right: 20px;">Technologies</h2></a>
-                <a class="header-link" href="/tags/coding"><h2 style="padding-left: 20px;padding-right: 20px;">Coding</h2></a>
-                <a class="header-link" href="/tags/programming"><h2 style="padding-left: 20px;padding-right: 20px;">Programming</h2></a>
-                <a class="header-link" href="/tags/ctfs"><h2 style="padding-left: 20px;padding-right: 20px;">CTFs</h2></a>
-                <a class="header-link" href="/tags/tutorial"><h2 style="padding-left: 20px;padding-right: 20px;">Tutorial</h2></a>
-                <a class="header-link" href="/about-me"><h2 style="padding-left: 20px;padding-right: 20px;">About Me</h2></a>
+        <div class="logo-title-mini logo-title-small">
+            <div class="title-divider">
+                <h1 v-on:click="anim_encode()" style="margin:0px;font-size: 40px;"> [@{{title}}] </h1>
+                <div class="main-links-shrinked">
+                    <a class="header-link" href="/tags/technologies"><h2 style="padding-left: 20px;padding-right: 20px;">Technologies</h2></a>
+                    <a class="header-link" href="/tags/coding"><h2 style="padding-left: 20px;padding-right: 20px;">Coding</h2></a>
+                    <a class="header-link" href="/tags/programming"><h2 style="padding-left: 20px;padding-right: 20px;">Programming</h2></a>
+                    <a class="header-link" href="/tags/ctfs"><h2 style="padding-left: 20px;padding-right: 20px;">CTFs</h2></a>
+                    <a class="header-link" href="/tags/tutorial"><h2 style="padding-left: 20px;padding-right: 20px;">Tutorial</h2></a>
+                    <a class="header-link" href="/about-me"><h2 style="padding-left: 20px;padding-right: 20px;">About Me</h2></a>
+                </div>
             </div>
         </div>
-        <div class="welcome-desc-static"><h2 style="color: white;font-family: 'SquareFont';letter-spacing:4px;">Welcome to The Art of Code</h2></div>
+        <div class="welcome-desc-static"><h2 style="color: white;font-family: 'SquareFont';letter-spacing:4px;">@{{desc}}</h2></div>
     @endif
 @endsection
 
 @section('posts')
     @foreach($posts as $post)
-        <div class="page" style="background-image: radial-gradient(circle,black,black,black ,rgba(10,10,10,0.72) 0%),url({{asset('/lib/glitch.jpg')}});background-size:cover;">
+        <!-- <div class="page" style="background-image: radial-gradient(circle,black,black,black ,rgba(10,10,10,0.72) 0%),url({{asset('/lib/glitch.jpg')}});background-size:cover;"> -->
+        <div class="page" style="background-image: radial-gradient(circle,black,black,black ,rgba(10,10,10,0.72) 0%),url({{asset($post->cover)}});background-size:cover;">
             <div style="width:32%; display: inline-block;">
                 <div style="height: 100%;">
-                    <!-- <a href="{{asset('/blog/how-to')}}"><img class="cover" src="{{asset('/lib/glitch.jpg')}}" align="left" /></a> -->
                     <a href="{{asset($post->url)}}"><img class="cover" src="{{asset($post->cover)}}" align="left" /></a>
                 </div>
             </div>

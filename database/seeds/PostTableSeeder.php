@@ -19,7 +19,9 @@ class PostTableSeeder extends Seeder
             "content"=>"<p>Gta san andreas no future</p>",
             "cover"=>"/lib/fbi.jpg",
             "tags"=>"[1],[2]",
-            "author"=>"Alecetra"
+            "author"=>"Alecetra",
+            "loved"=> 0,
+            "visited"=> 0
         ]);
 
         Post::create([
@@ -29,7 +31,9 @@ class PostTableSeeder extends Seeder
             "content"=>"<p>Gta san andreas hesoyam</p>",
             "cover"=>"/lib/glitch.jpg",
             "tags"=>"[2],[3]",
-            "author"=>"Normies"
+            "author"=>"Normies",
+            "loved"=> 0,
+            "visited"=> 0
         ]);
 
         Post::create([
@@ -39,7 +43,9 @@ class PostTableSeeder extends Seeder
             "content"=>"<p>Gta san andreas huckerd</p>",
             "cover"=>"/lib/stars.jpg",
             "tags"=>"[3],[4]",
-            "author"=>"Syqsterr"
+            "author"=>"Syqsterr",
+            "loved"=> 0,
+            "visited"=> 0
         ]);
     }
 }

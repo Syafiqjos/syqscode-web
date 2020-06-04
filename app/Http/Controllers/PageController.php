@@ -12,7 +12,7 @@ class PageController extends Controller
     public function default(Request $request){
         $po = Post::all();
         $posts = $po->slice(0 * total_perpage,total_perpage)->values();
-        $len = $po->count() / total_perpage;
+        $len = ceil($po->count() / total_perpage);
         return view('page',['page'=>'default','ppage'=>$len,'posts'=>$posts]);
     }
 
@@ -22,7 +22,7 @@ class PageController extends Controller
         }
         $po = Post::all();
         $posts = $po->slice($page * total_perpage,total_perpage)->values();
-        $len = $po->count() / total_perpage;
+        $len = ceil($po->count() / total_perpage);
         return view('page',['page'=>$page,'ppage'=>$len,'posts'=>$posts]);
     }
 
@@ -30,7 +30,7 @@ class PageController extends Controller
         $page = '0';
         $po = Post::all();
         $posts = $po->slice($page * total_perpage,total_perpage)->values();
-        $len = $po->count() / total_perpage;
+        $len = ceil($po->count() / total_perpage);
         return view('page',['page'=>$page,'ppage'=>$len,'posts'=>$posts]);
     }
 }

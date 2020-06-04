@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PageController@default');
 
-Route::get('/page', 'PageController@check0');
+Route::get('/page', 'PageController@check0')->name('home');
 Route::get('/page/{page}', 'PageController@check');
 
 Route::get('/interface', function() {

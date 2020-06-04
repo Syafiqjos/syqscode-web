@@ -23,33 +23,16 @@
                 <div class="wrapped-panel" width="10%">
                     <div class="segment">
                         <h2 >Popular Post</h2>
-                        <div class="subsegment">
-                            <div>
-                                <p><img src="/lib/fbi.jpg" width="80%" ></img>
-                                    Download GTA san andreas dengan menggunakan kincir angin yang sangat besar
-                                </p>
+                        @php use App\Post;$popular = Post::all()->sortByDesc('visited')->slice(0,5)->values();@endphp
+                        @foreach($popular as $popu)
+                            <div class="subsegment">
+                                <a href="{{$popu->url}}">
+                                    <p><img src="{{$popu->cover}}" width="80%" ></img><br>
+                                        {{ $popu->title }}
+                                    </p>
+                                </a>
                             </div>
-                        </div>
-                        <div class="subsegment">
-                            <p><img src="/lib/fbi.jpg" width="80%" ></img>
-                                Download GTA V
-                            </p>
-                        </div>
-                        <div class="subsegment">
-                            <p><img src="/lib/glitch.jpg" width="80%" ></img>
-                                Download GTA V
-                            </p>
-                        </div>
-                        <div class="subsegment">
-                            <p><img src="/lib/logo-icon.png" width="80%" ></img>
-                                Download GTA V
-                            </p>
-                        </div>
-                        <div class="subsegment">
-                            <p><img src="/lib/sweet.jpg" width="80%" ></img>
-                                Download GTA V
-                            </p>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="segment">
                         <h2>Page</h2>
@@ -111,7 +94,17 @@
                 next_title : '',
                 isloading : false,
                 loading : 0,
-                scroll_val : 0
+                scroll_val : 0,
+
+                desc_cursor : false,
+                desc_isdeleting : false,
+                desc_iswriting : false,
+                desc_counter_max : 16,
+                desc_counter : 0,
+                desc_qu: 0,
+                desc_index: 0,
+                desc : 'Welcome to The Art of Code',
+                desc_target : 'Anjay Mabar bjirr gta san andreas'
             },
             methods : {
                 anim_encode(){
@@ -121,7 +114,8 @@
                     if (this.next_title == this.title){
                         this.next_title = "Syqscode";
                     }
-                }
+                },
+
             }
         });
 
@@ -136,5 +130,51 @@
                 vm.loading++;
             }
         },20);
+
+        if (false){
+            setInterval(()=>{
+                if (!vm.desc_isdeleting){
+                    if (vm.desc_qu >= 10){
+                        if (vm.desc_cursor){
+                            vm.desc = vm.desc.substring(0,vm.desc.length-1);
+                        } else {
+                            var x = vm.desc;
+                            vm.desc += '_';
+                        }
+                        // if (vm.desc_counter > vm.desc_counter_max){
+                        //     vm.desc_isdeleting = true;
+                        //     vm.desc_index = vm.desc.length;
+                        // }
+                        vm.desc_counter++;
+                        vm.desc_qu = 0;
+                        vm.desc_cursor = !vm.desc_cursor;
+                    }
+                    vm.desc_qu++;
+                } else {
+                    if (vm.desc_iswriting){
+                        if (vm.desc_index <= vm.desc_target.length){
+                            vm.desc = vm.desc_target.substring(0,vm.desc_index + 1);
+                            vm.desc_index++;
+                        } else {
+                            vm.desc_isdeleting = false;
+                            vm.desc_iswriting = false;
+                            vm.desc_counter = 0;
+                            vm.desc_index = 0;
+                            vm.desc_qu = 0;
+                            vm.desc_cursor = true;
+                        }
+                    } else {
+                        if (vm.desc_index - 1 > 1){
+                            vm.desc = vm.desc.substring(0,vm.desc_index-1);
+                            vm.desc_index--;
+                        } else {
+                            vm.desc = vm.desc_target.substring(0,1);
+                            vm.desc_iswriting = true;
+                        }
+                    }
+                }
+                vm.desc_cursor = !vm.desc_cursor;
+            },50);
+        }
     </script>
 </html>
