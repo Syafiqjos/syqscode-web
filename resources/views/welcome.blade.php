@@ -7,6 +7,7 @@
 
         <title>Syqscode</title>
 
+        <link rel="icon" href="{{ asset('/lib/logo-icon.png') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('/lib/syqstyle.css') }}">
         <script type="application/javascript" src="{{asset('/lib/vue.min.js')}}"></script>
     </head>
@@ -31,11 +32,11 @@
                     <div class="page" style="background-image: radial-gradient(circle,black,black,black ,rgba(10,10,10,0.72) 0%),url({{asset('/lib/glitch.jpg')}});background-size:cover;">
                         <div style="width:32%; display: inline-block;">
                             <div style="height: 100%;">
-                                <img class="cover" src="{{asset('/lib/glitch.jpg')}}" align="left" />
+                                <a href="{{asset('/blog/how-to')}}"><img class="cover" src="{{asset('/lib/glitch.jpg')}}" align="left" /></a>
                             </div>
                         </div>
                         <div style="width:68%; display: inline-block;">
-                            <h1 class="title">How to make</h1>
+                            <a href="{{asset('/blog/how-to')}}"><h1 class="title">How to make</h1></a>
                             <div class="paragraph">
                                 it is hard to make some predictions. your life is not good as you think. Maybe its not to late to make something useful before you regret.
                             </div>
@@ -51,9 +52,11 @@
                                         </span>
                                     </h2>
                                 </div>
-                                <div class="readmore" style="position:relative;bottom:0px;">
-                                    <h2 align="right">Read More</h2>
-                                </div>
+                                    <div class="readmore" style="position:relative;bottom:0px;">
+                                        <a href="{{asset('/blog/how-to')}}">
+                                            <h2 align="right">Read More</h2>
+                                        </a>
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -121,25 +124,81 @@
                         <h2 >Popular Post</h2>
                         <div class="subsegment">
                             <div>
-                                <h3><img src="/lib/fbi.jpg" width="80%" ></img>
+                                <p><img src="/lib/fbi.jpg" width="80%" ></img>
                                     Download GTA san andreas dengan menggunakan kincir angin yang sangat besar
-                                </h3>
+                                </p>
                             </div>
                         </div>
                         <div class="subsegment">
-                            <h3><img src="/lib/fbi.jpg" width="80%" ></img>
+                            <p><img src="/lib/fbi.jpg" width="80%" ></img>
                                 Download GTA V
-                            </h3>
+                            </p>
+                        </div>
+                        <div class="subsegment">
+                            <p><img src="/lib/glitch.jpg" width="80%" ></img>
+                                Download GTA V
+                            </p>
+                        </div>
+                        <div class="subsegment">
+                            <p><img src="/lib/logo-icon.png" width="80%" ></img>
+                                Download GTA V
+                            </p>
+                        </div>
+                        <div class="subsegment">
+                            <p><img src="/lib/sweet.jpg" width="80%" ></img>
+                                Download GTA V
+                            </p>
                         </div>
                     </div>
                     <div class="segment">
-                        <h2>Webpage</h2>
+                        <h2>Page</h2>
                         <div class="subsegment">
                             <h3>Homepage</h3>
                             <h3>About Me</h3>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="footer">
+                <div class="footer-divider">
+                    <div class="footer-part footer-width" style="background-color: rgb(5,5,5);">
+                        <h2>Page</h2>
+                        <div class="subsegment" style="border-radius: 4px;background-color: rgb(15,15,15);">
+                            <h3 style="width:100%;">Homepage</h3>
+                            <h3 style="width:100%;">Search</h3>
+                            <h3 style="width:100%;">Request</h3>
+                            <h3 style="width:100%;">About Me</h3>
+                        </div>
+                    </div>
+                    <div class="footer-part footer-width" style="background-color: rgb(15,15,15);">
+                        <h2>Contact</h2>
+                        <div class="subsegment" style="border-radius: 4px;background-color: rgb(25,25,25);">
+                            <h3 style="width:100%;">Instagram</h3>
+                            <h3 style="width:100%;">Line</h3>
+                        </div>
+                    </div>
+                    <div class="footer-part footer-width" style="background-color: rgb(25,25,25);">
+                        <h2>About Me</h2>
+                        <div class="subsegment-no-hover" style="border-radius: 4px;background-color: rgb(35,35,35);">
+                            <h3 style="width:80%;">
+                                Syqsterr, Alecetra @ Syqscode
+                                <br><br><br>
+                                Member of Departement
+                                <br><br>
+                                Love Technologies
+                                <br><br>
+                                Like Experiment
+                                <br><br>
+                                Love Aimaina and 2D
+                                <br><br>
+                                Love PinoccioP, Mili, NekoHacker and Nanahira
+                                <br><br><br>
+                                No pHotoSs
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="trademarks"></div>
             </div>
         </div>
     </body>
