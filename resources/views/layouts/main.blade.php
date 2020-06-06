@@ -4,6 +4,7 @@
     <head>
         <meta char="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>
             @yield('title')
@@ -12,6 +13,8 @@
         <link rel="icon" href="{{ asset('/lib/logo-icon.png') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('/lib/syqstyle.css') }}">
         <script type="application/javascript" src="{{asset('/lib/vue.min.js')}}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        @yield('exscr')
     </head>
     <body>
         <div id="master" align="center">
@@ -104,7 +107,8 @@
                 desc_qu: 0,
                 desc_index: 0,
                 desc : 'Welcome to The Art of Code',
-                desc_target : 'Anjay Mabar bjirr gta san andreas'
+                desc_target : 'Anjay Mabar bjirr gta san andreas',
+                @yield('vue-attr')
             },
             methods : {
                 anim_encode(){
@@ -177,4 +181,5 @@
             },50);
         }
     </script>
+    @yield('vue')
 </html>

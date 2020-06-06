@@ -23,3 +23,5 @@ Route::get('/interface', function() {
 });
 
 Route::get('/blog/{url}', "BlogController@check");
+Route::post('/blog/{url}', "BlogController@loved");
+Route::post('/blog/{url}/comment', "BlogController@comment");
