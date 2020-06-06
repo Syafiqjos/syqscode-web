@@ -381,6 +381,50 @@ a:visited, a h1:link {
     padding:5px;
 }
 
+.comment-modal-blur {
+    display:none;
+    position:fixed;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:100vw;
+    height:100vh;
+    background-color:rgba(10,10,10,0.42);
+}
+
+.comment-modal-blur .comment-modal {
+    position:fixed;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:60vw;
+    height:36vh;
+    background-color:rgb(25,25,25);
+    border:8px solid rgb(55,25,25);
+}
+
+.comment-modal-blur .comment-modal .comment-special {
+    display:inline;
+}
+
+.comment-modal-blur .comment-modal .comment-size {
+    width:32%;
+}
+
+.comment-modal-blur .comment-modal .comment-great-size {
+    width:84%;
+    margin-left : auto;
+    margin-right : auto;
+}
+
+.comment-modal-blur .comment-modal .comment-break {
+    content : '<br>';
+}
+
+.comment-modal-blur .comment-modal .comment-content {
+    text-align:center;
+}
+
 @media (max-width:700px){
     .position-middle-center{
         align-self: center;
@@ -433,7 +477,6 @@ a:visited, a h1:link {
     }
 
     .readmore h2 {
-        position: relative;
         font-family: "SquareFont";
         font-size: 12px;
         width:20vw;
@@ -563,5 +606,27 @@ a:visited, a h1:link {
         margin:10px;
         padding:5px;
         height: 80%;
+    }
+
+    .comment-modal-blur .comment-modal {
+        width:100vw;
+        height:46vh;
+    }
+
+    .comment-modal-blur .comment-modal .comment-special {
+        display:block;
+    }
+
+    .comment-modal-blur .comment-modal .comment-size {
+        width:88%;
+    }
+
+    .comment-modal-blur .comment-modal .comment-break {
+        content : '';
+    }
+
+    .comment-modal-blur .comment-modal .comment-content {
+        text-align:left;
+        margin:12px;
     }
 }

@@ -37,9 +37,14 @@
                 },function(data,status){
                     if (data.success == "iiiiiiiiikuuuuu ikuuuuu"){
                         //Update Comment
-                        document.getElementById('comment_p' + vm.comment_id).outerHTML += '<div id="comment_p'+data.comment_id+'" style="background-color: rgb(25,25,25);padding:5x;margin-left:' + (parseInt(document.getElementById('comment_p' + vm.comment_id).style.marginLeft) + 42) +'px"><h2 style="font-family:\'Roboto\';padding:10px;margin-left:10px;font-size:20px;margin-bottom: 0px;">'+data.comment_name+'</h2><div style="display:flex;"><div style="display: block;width:16%;"><!-- <img src="/lib/logo-icon.png" style="display:block;width:64%;margin-left:10px;margin-top:0px;padding-top:0px;padding-left:5px;padding-right:10px;margin-bottom:20px;margin-right:10px;padding-right:5px;"></img> --><h2 style="font-family:\'Roboto\';padding:10px;margin-left:10px;font-size:20px;margin-bottom: 0px;">|->></h2></div><div style="width:80%;display:block;right:0px;"><p style="width:100%;color:rgb(220,220,220);display: block;align-self:left;text-align:left;margin-left:5px;padding-left:5px;font-size:18px;margin-top:0px;margin-left:10px;text-align: justify;">'+data.comment_content+'</p><div id="comment_n'+data.comment_id+'" onclick="comment_showup('+data.comment_id+')" class="readmore" align="right" style="width:92px;margin:auto;margin-right:0px;padding-right:0px;"><h2 style="font-size:16px;">reply</h2></div></div></div></div>';
+                        if (vm.comment_latest_id != -1){
+                            document.getElementById('comment_p' + vm.comment_latest_id).style.backgroundColor = 'rgb(25,25,35)';
+                        }
+                        document.getElementById('comment_p' + vm.comment_id).outerHTML += '<div id="comment_p'+data.comment_id+'" style="background-color: rgb(25,25,55);padding:5x;margin-left:' + (parseInt(document.getElementById('comment_p' + vm.comment_id).style.marginLeft) + 42) +'px;width:100%;border:2px solid rgb(15,15,15);"><h2 style="font-family:\'Roboto\';padding:10px;margin-left:10px;font-size:20px;margin-bottom: 0px;">'+data.comment_name+'</h2><div style="display:flex;"><div style="display: block;width:16%;"><!-- <img src="/lib/logo-icon.png" style="display:block;width:64%;margin-left:10px;margin-top:0px;padding-top:0px;padding-left:5px;padding-right:10px;margin-bottom:20px;margin-right:10px;padding-right:5px;"></img> --><h2 style="font-family:\'Roboto\';padding:10px;margin-left:10px;font-size:20px;margin-bottom: 0px;">|->></h2></div><div style="width:80%;display:block;right:0px;"><p style="width:100%;color:rgb(220,220,220);display: block;align-self:left;text-align:left;margin-left:5px;padding-left:5px;font-size:18px;margin-top:0px;margin-left:10px;text-align: justify;margin-right:20px;">'+data.comment_content+'</p><div id="comment_n'+data.comment_id+'" onclick="comment_showup('+data.comment_id+')" class="readmore" align="right" style="width:92px;margin:auto;margin-right:0px;padding-right:0px;"><h2 style="font-size:16px;">reply</h2></div></div></div></div>';
                         document.getElementById('comment_modal').style.display = 'none';
-                        alert('Comment submited');
+                        vm.comment_latest_id = data.comment_id;
+                        document.getElementById('content').value = "";
+                        // alert('Comment submited');
                     } else {
                         alert('Comment nod gut');
                     }
@@ -51,20 +56,18 @@
 @endsection
 
 @section('header')
-<div id="comment_modal" style="display:none;position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:100vw;height:100vh;background-color:rgba(10,10,10,0.42);">
-    <div style="position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:60vw;height:36vh;background-color:rgb(25,25,25);border:8px solid rgb(55,25,25);">
+<div id="comment_modal" class="comment-modal-blur">
+    <div class="comment-modal">
         <div style="display:block;color:rgb(245,245,245);">
             <h2 style="font-family: 'SquareFont';letter-spacing: 1px;font-size:24px;margin-bottom:4px;">Comment</h2>
             <div style="display:block;">
                 <form action="" method="POST" style="display:block;">
-                    <label align="left" style="display:inline;font-family: 'Roboto';" for="name">Name : </label>
-                    <input type="text" id="name" name="name" style="background-color:rgb(240,240,240);display:inline;margin:10px;margin-left:24px;margin-right:auto;width:32%;font-family:'Roboto';font-size:16px;padding:4px;"></input>
-                    <label align="left" style="margin-left:10px;display:inline;font-family: 'Roboto';" for="email">Email : </label>
-                    <input type="text" id="email" name="email" style="background-color:rgb(240,240,240);display:inline;margin:10px;margin-left:12px;margin-right:auto;width:32%;font-family:'Roboto';font-size:16px;padding:4px;"></input>
-                    <br>
-                    <label align="left" style="display:inline;font-family: 'Roboto';" for="content">Content : </label>
-                    <br>
-                    <textarea id="content" name="content" style="background-color:rgb(240,240,240);display:inline;margin:10px;margin-left:24px;margin-right:auto;width:82%;font-family:'Roboto';font-size:16px;padding:4px;height:64px;resize:none;"></textarea>
+                    <label class="comment-special" align="left" style="margin-left:10px;font-family: 'Roboto';" for="name">Name : </label>
+                    <input class="comment-special comment-size" type="text" id="name" name="name" style="background-color:rgb(240,240,240);margin:10px;margin-left:12px;margin-right:auto;font-family:'Roboto';font-size:16px;padding:4px;"></input>
+                    <label class="comment-special" align="left" style="margin-left:10px;font-family: 'Roboto';" for="email">Email : </label>
+                    <input class="comment-special comment-size" type="text" id="email" name="email" style="background-color:rgb(240,240,240);margin:10px;margin-left:12px;margin-right:auto;font-family:'Roboto';font-size:16px;padding:4px;"></input>
+                    <label class="comment-special comment-content" style="display:block;font-family: 'Roboto';" for="content">Content : </label>
+                    <textarea class="comment-special comment-great-size" id="content" name="content" style="background-color:rgb(240,240,240);display:block;margin:10px;auto;font-family:'Roboto';font-size:16px;padding:4px;height:64px;resize:none;"></textarea>
                 </form>
             </div>
             <div style="display:flex;">
@@ -98,14 +101,15 @@
     <h1 class="blog-title">{{$post->title}}</h1>
     <h2 style="font-size: 18px;background-color: rgb(55,25,25);padding:2px;"><i>"{{$post->description}}"</i></h2>
     <div class="blog-body">
+        <h3 style="margin-top: 0px;margin-bottom:32px;font-size:16px;color:rgb(180,180,180);">Log : Ditulis oleh {{$author->username}}; {{$post->created_at}}</h3>
         @php
             echo $post->content;
         @endphp
         <div style="margin-top:60px;">
             <div class="author" style="background-color:rgb(15,15,15);" align="left">
                 <div style="display:block;width:100%;" >
-                    <h3 style="width:100%;margin-top:32px;padding-top:10px;position:relative;font-size: 24px;" align="center">@{{jadigimana}}</h3>
-                    <p style="width:100%;margin-left:0px;margin-right:0px;margin-top:-8px;margin-bottom:18px;position:relative;letter-spacing:1px;text-align:center;" align="center">@{{tambahin}}<p>
+                    <h3 style="width:100%;margin-top:32px;padding-top:10px;font-size: 24px;" align="center">@{{jadigimana}}</h3>
+                    <p style="width:100%;margin-left:0px;margin-right:0px;margin-top:-8px;margin-bottom:18px;letter-spacing:1px;text-align:center;" align="center">@{{tambahin}}<p>
                     <img id="lov" align="center" src="/lib/logo-icon.png" style="display:block;width:60px;margin-left:auto;margin-right:auto;padding-left:0px;padding-right:0px;"></img>
                 </div>
             </div>
@@ -113,20 +117,23 @@
         <div style="margin-top:30px;background-color: rgb(55,25,25);">
             <h2 style="margin:0px;padding:16px;font-size:20px;font-family:'SquareFont';letter-spacing:12px;color:rgb(255,255,255);">Author</h2>
             <div class="author" style="background-color:rgb(15,15,15);" align="left">
-                <img src="/lib/logo-icon.png" class="author-image"></img>
+                <img src="{{$author->profpic}}" class="author-image"></img>
                 <div style="display:block;" >
-                    <h3 style="width:100%;margin-top:20px;margin-left:20px;padding-top:10px;position:relative;font-size: 24px;" align="left"><s>Neko</s><i>Hacker</i></h3>
-                    <p style="margin-left:20px;padding:2px;margin-top:-8px;margin-bottom:18px;position:relative;letter-spacing:1px;" align="left">"Just a cat playing a pussy, never let you guard but leave it behind the urgent circumtancesy until you can defeat the deadly toxic inside yours."<p>
+                    <h3 style="width:100%;margin-top:20px;margin-left:20px;padding-top:10px;font-size: 24px;" align="left">@php echo $author->richname; @endphp</h3>
+                    <p style="margin-left:20px;padding:2px;margin-top:-8px;margin-bottom:18px;letter-spacing:1px;" align="left">@php echo $author->description; @endphp<p>
                 </div>
             </div>
         </div>
-        <div style="margin-top:60px;background-color: rgb(55,25,25);">
-            <h2 style="margin:0px;padding:16px;padding-bottom:4px;font-size:20px;font-family:'SquareFont';letter-spacing:12px;color:rgb(255,255,255);">Comments</h2>
+        <h2 style="margin:0px;margin-top:60px;padding:16px;font-size:20px;font-family:'SquareFont';letter-spacing:12px;color:rgb(255,255,255);background-color: rgb(55,25,25)">Comments</h2>
+        <div id="comment_n0" onclick="comment_showup(0)" class="readmore" align="right" style="text-align:center;width:100%;margin:auto;">
+            <h2 style="font-size:16px;">Add comment</h2>
+        </div>
+        <div style="margin-top:0px;background-color: rgb(25,25,25);overflow:scroll;">
             <!-- Comments go here, setup blompe -->
             @php
                 function recc($x,$margin){
                     echo '
-                        <div id="comment_p'.$x->obj->id.'" style="background-color: rgb(25,25,25);padding:5x;margin-left:'.$margin.'px">
+                        <div id="comment_p'.$x->obj->id.'" style="background-color: rgb(25,25,35);padding:5x;margin-left:'.$margin.'px;width:100%;border:2px solid rgb(15,15,15);">
                             <h2 style="font-family:\'Roboto\';padding:10px;margin-left:10px;font-size:20px;margin-bottom: 0px;">'.$x->obj->name.'</h2>
                             <div style="display:flex;">
                                 <div style="display: block;width:16%;">
@@ -134,7 +141,7 @@
                                     <h2 style="font-family:\'Roboto\';padding:10px;margin-left:10px;font-size:20px;margin-bottom: 0px;">|->></h2>
                                 </div>
                                 <div style="width:80%;display:block;right:0px;">
-                                    <p style="width:100%;color:rgb(220,220,220);display: block;align-self:left;text-align:left;margin-left:5px;padding-left:5px;font-size:18px;margin-top:0px;margin-left:10px;text-align: justify;">'.$x->obj->content.'</p>
+                                    <p style="width:100%;color:rgb(220,220,220);display: block;align-self:left;text-align:left;margin-left:5px;padding-left:5px;font-size:18px;margin-top:0px;margin-left:10px;margin-right:20px;text-align: justify;">'.$x->obj->content.'</p>
                                     <div id="comment_n'.$x->obj->id.'" onclick="comment_showup('.$x->obj->id.')" class="readmore" align="right" style="width:92px;margin:auto;margin-right:0px;padding-right:0px;">
                                         <h2 style="font-size:16px;">reply</h2>
                                     </div>
@@ -148,6 +155,7 @@
                 }
 
                 echo '<div style="background-color:rgb(15,15,15);margin-top:20px;">';
+                echo '<div id="comment_p0" style="background-color: rgb(25,25,35);padding:5x;margin-left:-32px;width:100%;border:2px solid rgb(15,15,15);"></div>';
                     foreach($comments as $com){
                         recc($com,10);
                     }
@@ -158,9 +166,10 @@
 @endsection
 
 @section('vue-attr')
-    jadigimana : 'Jadi gimana postnya ??',
-    tambahin : '"Tambahin love nya kalo emang bagus"',
+    jadigimana : '@php echo $author->love_title; @endphp',
+    tambahin : '@php echo $author->love_subtitle; @endphp',
     comment_id : 0,
+    comment_latest_id : -1
 @endsection
 
 @section('vue')

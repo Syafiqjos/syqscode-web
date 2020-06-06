@@ -19,7 +19,7 @@ class PostTableSeeder extends Seeder
             "content"=>"<p>Gta san andreas no future</p>",
             "cover"=>"/lib/fbi.jpg",
             "tags"=>"[1],[2]",
-            "author"=>"Alecetra",
+            "author_id"=>1,
             "loved"=> 0,
             "visited"=> 0
         ]);
@@ -31,7 +31,7 @@ class PostTableSeeder extends Seeder
             "content"=>"<p>Gta san andreas hesoyam</p>",
             "cover"=>"/lib/glitch.jpg",
             "tags"=>"[2],[3]",
-            "author"=>"Normies",
+            "author_id"=>2,
             "loved"=> 0,
             "visited"=> 0
         ]);
@@ -43,7 +43,7 @@ class PostTableSeeder extends Seeder
             "content"=>"<p>Gta san andreas huckerd</p>",
             "cover"=>"/lib/stars.jpg",
             "tags"=>"[3],[4]",
-            "author"=>"Syqsterr",
+            "author_id"=>3,
             "loved"=> 0,
             "visited"=> 0
         ]);

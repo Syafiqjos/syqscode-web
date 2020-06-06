@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Comment;
+use App\Author;
 
 class CommentObj {
     public $obj;
@@ -29,6 +30,21 @@ class BlogController extends Controller
             //Return Default kalo 404
             return redirect()->route('home');
         }
+
+        $author = Author::where('id',$post->author_id);
+
+        if ($author->count() <= 0){
+            $author = new Author();
+            $author->username = "[UNKNOWWN]";
+            $author->richname = "<s>[REDACTED]</s>";
+            $author->description = "[REDACTED][BUG][REDACTED][ANONYMOUS][REDACTED]";
+            $author->profpic = "/lib/logo-icon.png";
+            $author->love_title = "DdDdo  yo u   li o ke  di s  po stT t  ?  !?";
+            $author->love_subtitle = "iFFf y u0  l  o i   ke  t d his  po  s t  pl e  a s e  lo   v v e v v  v ve  meeeee.e..e.e";
+        } else {
+            $author = $author->first();
+        }
+
         $post->visited++;
         $post->save();
 
@@ -50,7 +66,7 @@ class BlogController extends Controller
             }
         }
 
-        return view('blog',["post" => $post, "comments" => $root]);
+        return view('blog',["post" => $post, "comments" => $root, "author" => $author]);
     }
 
     public function loved(Request $request, $url){
@@ -66,6 +82,20 @@ class BlogController extends Controller
 
     public function comment(Request $request, $url){
         if (isset($request->uncensored) && $request->uncensored == "senpai...") {
+
+            if (strpos($request->comment_name,'<script') !== false || strpos($request->comment_name,'</script') !== false || strpos($request->comment_email,'<script') !== false || strpos($request->comment_email,'</script') !== false || strpos($request->comment_content,'<script') !== false || strpos($request->comment_content,'</script') !== false){
+                return response()->json(['success'=>'iku ikuuu']);
+            }
+
+            $request->comment_name = str_replace('<','&lt;',$request->comment_name);
+            $request->comment_name = str_replace('>','&gt;',$request->comment_name);
+
+            $request->comment_email = str_replace('<','&lt;',$request->comment_email);
+            $request->comment_email = str_replace('>','&gt;',$request->comment_email);
+
+            $request->comment_content = str_replace('<','&lt;',$request->comment_content);
+            $request->comment_content = str_replace('>','&gt;',$request->comment_content);
+
             $po = Post::where('url','/blog/'.$url);
             $post = $po->first();
             $com = new Comment();

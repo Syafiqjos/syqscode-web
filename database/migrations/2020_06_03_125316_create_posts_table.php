@@ -21,7 +21,7 @@ class CreatePostsTable extends Migration
             $table->longText('content');
             $table->string('cover');
             $table->string('tags');
-            $table->string('author');
+            $table->integer('author_id')->unsigned();
             $table->bigInteger('loved')->unsigned();
             $table->bigInteger('visited')->unsigned();
             $table->timestamps();
