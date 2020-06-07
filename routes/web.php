@@ -25,3 +25,8 @@ Route::get('/interface', function() {
 Route::get('/blog/{url}', "BlogController@check");
 Route::post('/blog/{url}', "BlogController@loved");
 Route::post('/blog/{url}/comment', "BlogController@comment");
+
+Route::get('/mails/newsletter', function(){
+    return view('mails.check');
+});
+Route::post('/mails/newsletter','MailController@newsletter');

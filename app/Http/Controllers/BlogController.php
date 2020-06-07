@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Comment;
 use App\Author;
+use App\Subscriber;
+use App\Mail\CommentReplyMail;
+use Illuminate\Support\Facades\Mail;
 
 class CommentObj {
     public $obj;
@@ -23,6 +26,73 @@ class CommentObj {
 
 class BlogController extends Controller
 {
+    public function check_user($name, $email){
+        $subs = Subscriber::where('name',$name);
+        if ($subs->count() <= 0){
+            $news = new Subscriber();
+            $news->name = $name;
+            $news->email = $email;
+            $news->save();
+            return true;
+        } else {
+            $sub = $subs->first();
+            if ($sub->email == $email){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public function check_email($email){
+        $em = Subscriber::where('email',$email);
+        if ($em->count() <= 0){
+            $newem = new Subscriber();
+            $newem->email = $email;
+            $newem->save();
+
+            return false;
+        } else {
+            $ema = $em->where('verified',true);
+            if ($ema->count() <= 0){
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function send_comment_email($x,$post){
+        $obj = new \stdClass();
+        $obj->sender = 'aimaina@syqscode.com';
+        $obj->receiver = $x;
+
+        //URL POST BUAT VIEW BELUM
+
+        Mail::to($obj->receiver)->send(new CommentReplyMail($obj));
+    }
+
+    public function reply_email($fr,$tr,$post){
+        if ($tr != ''){
+            $target = Subscriber::where('email',$tr);
+            if ($target->count() > 0){
+                if ($this->check_email($target->first()->email)){
+                    if ($fr != $tr){
+                        $this->send_comment_email($target->first()->email,$post);
+                    }
+                }
+            }
+        }
+
+        if ($fr != ''){
+            $from = Subscriber::where('email',$fr);
+            if ($from->count() > 0){
+                $this->check_email($from->first()->email);
+            }
+        }
+    }
+
     public function check(Request $request, $url){
         $po =  Post::where('url','/blog/'.$url);
         $post = $po->first();
@@ -83,6 +153,10 @@ class BlogController extends Controller
     public function comment(Request $request, $url){
         if (isset($request->uncensored) && $request->uncensored == "senpai...") {
 
+            if (!filter_var($request->comment_email,FILTER_VALIDATE_EMAIL) && $request->comment_email != ''){
+                return response()->json(['success'=>'iku ikuuu u u u']);
+            }
+
             if (strpos($request->comment_name,'<script') !== false || strpos($request->comment_name,'</script') !== false || strpos($request->comment_email,'<script') !== false || strpos($request->comment_email,'</script') !== false || strpos($request->comment_content,'<script') !== false || strpos($request->comment_content,'</script') !== false){
                 return response()->json(['success'=>'iku ikuuu']);
             }
@@ -96,6 +170,10 @@ class BlogController extends Controller
             $request->comment_content = str_replace('<','&lt;',$request->comment_content);
             $request->comment_content = str_replace('>','&gt;',$request->comment_content);
 
+            if (!$this->check_user($request->comment_name,$request->comment_email)){
+                return response()->json(['success'=>'iku ikuuu ku kuuu iku iku']);
+            }
+
             $po = Post::where('url','/blog/'.$url);
             $post = $po->first();
             $com = new Comment();
@@ -105,6 +183,13 @@ class BlogController extends Controller
             $com->email = $request->comment_email;
             $com->content = $request->comment_content;
             $com->save();
+
+            if ($com->replied_to == 0){
+                $this->reply_email($com->email,0,'/blog/'.$url);
+            } else {
+                $this->reply_email($com->email,Comment::where('id',$com->replied_to)->first()->email,'/blog/'.$url);
+            }
+
             return response()->json(['success'=>'iiiiiiiiikuuuuu ikuuuuu','comment_id'=>$com->id,'comment_name'=>$com->name,'comment_email'=>$com->email,'comment_content'=>$com->content]);
         }
         return response()->json(['success'=>'iku ikuuu']);

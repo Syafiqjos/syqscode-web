@@ -45,6 +45,10 @@
                         vm.comment_latest_id = data.comment_id;
                         document.getElementById('content').value = "";
                         // alert('Comment submited');
+                    } else if (data.success == "iku ikuuu u u u"){
+                        alert('Email nod gut');
+                    } else if (data.success == "iku ikuuu ku kuuu iku iku"){
+                        alert('Nickname taken');
                     } else {
                         alert('Comment nod gut');
                     }
