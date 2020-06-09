@@ -19,6 +19,11 @@ class CreateSubscribersTable extends Migration
             $table->string('email',128);
             $table->boolean('verified')->default(false);
             $table->boolean('newsletter')->default(false);
+            $table->integer('salt')->unsigned()->default(0);
+            $table->string('reply_verif_link')->default('');
+            $table->string('reply_unverif_link')->default('');
+            $table->string('newsletter_verif_link')->default('');
+            $table->string('newsletter_unverif_link')->default('');
             $table->timestamps();
         });
     }
