@@ -102,7 +102,13 @@
 @endsection
 
 @section('posts')
-    <h1 class="blog-title">{{$post->title}}</h1>
+    <h1 class="blog-title" style="margin-bottom:0px;">{{$post->title}}</h1>
+    <div style="margin-top:0px;margin-bottom:-10px;display: flex; margin-left:auto;margin-right:auto;text-align: center;">
+        <img src="/lib/loved.png" style="padding:4px;margin-left:auto;margin-right:10px;width:24px;height:24px;margin-top:10px;"></img>
+        <h2 style="padding:4px;margin-left:4px;margin-right:4px;">{{$post->loved}}</h2>
+        <img src="/lib/visited.png" style="padding:4px;margin-left:4px;margin-right:4px;width:24px;height:24px;margin-top:10px;"></img>
+        <h2 style="padding:4px;margin-left:10px;margin-right:auto;">{{$post->visited}}</h2>
+    </div>
     <h2 style="font-size: 18px;background-color: rgb(55,25,25);padding:2px;"><i>"{{$post->description}}"</i></h2>
     <div class="blog-body">
         <h3 style="margin-top: 0px;margin-bottom:32px;font-size:16px;color:rgb(180,180,180);">Log : Ditulis oleh {{$author->username}}; {{$post->created_at}}</h3>

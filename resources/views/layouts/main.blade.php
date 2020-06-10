@@ -38,6 +38,12 @@
                         @endforeach
                     </div>
                     <div class="segment">
+                        <h2>Newsletter</h2>
+                        <div class="subsegment">
+                            <a href="/subscribe-newsletter"><h3>Subscribe</h3></a>
+                        </div>
+                    </div>
+                    <div class="segment">
                         <h2>Page</h2>
                         <div class="subsegment">
                             <h3>Homepage</h3>

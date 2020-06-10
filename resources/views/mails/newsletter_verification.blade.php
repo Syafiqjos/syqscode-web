@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>Syqscode - Newsletter</title>
+        <title>Syqscode - Newsletter Subscribe</title>
         <style>
             body {
                 background-color:rgb(10,10,10);
@@ -14,6 +14,7 @@
             }
             h1 {
                 color:rgb(225,225,225);
+                font-family: 'SquareFont';
             }
             h2,p {
                 color:rgb(255,255,255);
@@ -60,11 +61,14 @@
     </head>
     <body>
         <div style="background-color:rgb(10,10,10);padding:24px;">
-            <h1 class="logo-title">Hello, {{$target}}
-            </h1>
-            <h2 style="font-family: 'Roboto';color:white;font-size:16px;">Ada post baru di <a style="font-family: 'SquareFont';border: 2px solid white;padding:2px;" href="http://syqscode.com/">Syqscode</a> !</h2>
+            <h1>Hello, {{$target}}</h1>
+            <h2>Aimaina mendeteksi kamu mengisi form newsletter di situs <a style="font-family: 'SquareFont';border: 2px solid white;padding:2px;" href="http://syqscode.com/">Syqscode</a>.</h2>
+            <p>Jika kamu mau menerima email setiap kali ada post baru, silahkan mengklik url verifikasi dibawah.</p>
+            <p>Verifikasi : <a href="{{asset('/')}}{{'verify?n='.$link}}">{{asset('/')}}{{'verify?n='.$link}}<a/></p>
             <br>
-            <p style="font-family: 'Roboto';color:white;font-size:16px;">Jika kamu tidak mau menerima newsletter ini lagi, kamu dapat unsubscribe melalui link berikut <a href="{{URL::to('/').'/verify?n='.$unverif}}">ini</a>.</p>
+            <p>Jika kamu mau menerima email setiap kali komentarmu dibalas, silahkan mengklik url verifikasi dibawah.</p>
+            <p>Verifikasi : <a href="{{asset('/')}}{{'verify?c='.$linkeded}}">{{asset('/')}}{{'verify?c='.$linkeded}}<a/></p>
+            <p>Jika kamu tidak melakukan tindakan ini cukup abaikan saja email ini.</p>
             <br>
             <h2 style="font-family: 'Roboto';color:white;font-size:16px;">k- bye</h2>
             <p style="font-family: 'Roboto';color:white;font-size:16px;">- Aimaina</p>

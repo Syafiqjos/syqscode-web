@@ -29,6 +29,9 @@ Route::get('/blog/{url}', "BlogController@check");
 Route::post('/blog/{url}', "BlogController@loved");
 Route::post('/blog/{url}/comment', "BlogController@comment");
 
+Route::get('/subscribe-newsletter', function(){ return view('newsletter',['status'=>'initial']); });
+Route::post('/subscribe-newsletter', "MailController@subscribe");
+
 Route::get('/mails/newsletter', function(){
     return view('mails.check');
 });

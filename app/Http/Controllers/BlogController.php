@@ -43,6 +43,12 @@ class BlogController extends Controller
                 $unlink = $this->unlinked($email,$news->salt);
                 $news->reply_unverif_link = $unlink;
 
+                $letterlink = $this->news_linked($email,$news->salt);
+                $news->newsletter_verif_link = $letterlink;
+
+                $letterunlink = $this->news_unlinked($email,$news->salt);
+                $news->newsletter_unverif_link = $letterunlink;
+
                 $obj = new \stdClass();
                 $obj->sender = 'aimaina@syqscode.com';
                 $obj->receiver = $email;

@@ -7,24 +7,26 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class NewsletterMail extends Mailable
+class NewsletterVerificationMail extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $letter;
     public $target;
-    public $unlink;
+    public $linked;
+    public $linkeded;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($letter,$target,$unlink)
+    public function __construct($letter,$target,$linked,$linkeded)
     {
         $this->letter = $letter;
         $this->target = $target;
-        $this->unlink = $unlink;
+        $this->linked = $linked;
+        $this->linkeded = $linkeded;
     }
 
     /**
@@ -35,6 +37,6 @@ class NewsletterMail extends Mailable
     public function build()
     {
         // return $this->view('view.name');
-        return $this->from('aimaina@syqscode.com')->view('mails.newsletter')->text('mails.newsletter_text')->with(['target'=>$this->target,'unverif'=>$this->unlink]);
+        return $this->from('aimaina@syqscode.com')->view('mails.newsletter_verification')->text('mails.newsletter_verification_text')->with(['target'=>$this->target,'link'=>$this->linked,'linked'=>$this->linkeded]);
     }
 }

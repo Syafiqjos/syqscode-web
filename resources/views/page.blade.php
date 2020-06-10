@@ -71,10 +71,16 @@
                             @endforeach
                         </h2>
                     </div>
-                    <div class="readmore" style="position:relative;bottom:0px;">
-                        <a href="{{asset($post->url)}}">
-                            <h2 align="right">Read More</h2>
-                        </a>
+                    <div style="margin-top:0px;margin-bottom:-50px;display: flex; margin-left:0px;margin-right:0px;text-align: center;">
+                        <img src="/lib/loved.png" style="padding:2px;margin-left:auto;margin-right:4px;width:14px;height:14px;margin-top:12px;"></img>
+                        <h2 style="padding:2px;margin-left:2px;margin-right:2px;font-size:13px;">{{$post->loved}}</h2>
+                        <img src="/lib/visited.png" style="padding:2px;margin-left:2px;margin-right:2px;width:14px;height:14px;margin-top:12px;"></img>
+                        <h2 style="padding:2px;margin-left:4px;margin-right:auto;margin-bottom:0px;font-size:13px;">{{$post->visited}}</h2>
+                        <div class="readmore" style="position:relative;bottom:0px;">
+                            <a href="{{asset($post->url)}}">
+                                <h2 align="right">Read More</h2>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
