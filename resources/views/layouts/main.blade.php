@@ -26,7 +26,7 @@
                 <div class="wrapped-panel" width="10%">
                     <div class="segment">
                         <h2 >Popular Post</h2>
-                        @php use App\Post;$popular = Post::all()->sortByDesc('visited')->slice(0,5)->values();@endphp
+                        @php use App\Post;$popular = Post::all()->where('is_deleted','0')->sortByDesc('visited')->slice(0,5)->values();@endphp
                         @foreach($popular as $popu)
                             <div class="subsegment">
                                 <a href="{{$popu->url}}">

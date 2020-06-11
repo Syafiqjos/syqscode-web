@@ -515,9 +515,18 @@ a:visited, a h1:link {
         margin-top:40px;
     }
 
+    /* NEW */
+
+    .wrapped {
+        display:block;
+    }
+
     .wrapped-panel{
         display: none;
+        width:100%;
     }
+
+    /* ENDNEW */
 
     .welcome-desc{
         top:80vh;

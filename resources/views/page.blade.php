@@ -65,9 +65,11 @@
                                 @php
                                     $tagn = App\Tag::where('id',$tag[1])->first();
                                 @endphp
-                                <span class="label">
-                                    <a href="/{{$tagn->url}}">{{$tagn->name}}</a>
-                                </span>
+                                @if($tagn)
+                                    <span class="label">
+                                        <a href="/{{$tagn->url}}">{{$tagn->name}}</a>
+                                    </span>
+                                @endif
                             @endforeach
                         </h2>
                     </div>

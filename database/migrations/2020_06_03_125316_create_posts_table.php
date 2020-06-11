@@ -22,8 +22,9 @@ class CreatePostsTable extends Migration
             $table->string('cover');
             $table->string('tags');
             $table->integer('author_id')->unsigned();
-            $table->bigInteger('loved')->unsigned();
-            $table->bigInteger('visited')->unsigned();
+            $table->bigInteger('loved')->unsigned()->default(0);
+            $table->bigInteger('visited')->unsigned()->default(0);
+            $table->boolean('is_deleted')->default(0);
             $table->timestamps();
         });
     }

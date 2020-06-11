@@ -165,7 +165,7 @@ class BlogController extends Controller
     }
 
     public function check(Request $request, $url){
-        $po =  Post::where('url','/blog/'.$url);
+        $po =  Post::where('is_deleted',false)->where('url','/blog/'.$url);
         $post = $po->first();
         if ($po->count() <= 0){
             //Return Default kalo 404
