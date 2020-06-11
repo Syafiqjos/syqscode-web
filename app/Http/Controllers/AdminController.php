@@ -7,6 +7,7 @@ use App\Subscriber;
 use App\Post;
 use App\Author;
 use App\Tag;
+use App\Http\Controllers\MailController;
 
 class AdminController extends Controller
 {
@@ -88,6 +89,11 @@ class AdminController extends Controller
 
         $post->author_id = $request->get('author');
         $post->save();
+
+        $mc = new MailController();
+
+        $mc->newsletter($request);
+
         return redirect($post->url);
     }
 

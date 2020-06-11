@@ -13,6 +13,7 @@ class NewsletterMail extends Mailable
 
     public $letter;
     public $target;
+    public $post;
     public $unlink;
 
     /**
@@ -20,10 +21,11 @@ class NewsletterMail extends Mailable
      *
      * @return void
      */
-    public function __construct($letter,$target,$unlink)
+    public function __construct($letter,$target,$post,$unlink)
     {
         $this->letter = $letter;
         $this->target = $target;
+        $this->post = $post;
         $this->unlink = $unlink;
     }
 
@@ -35,6 +37,6 @@ class NewsletterMail extends Mailable
     public function build()
     {
         // return $this->view('view.name');
-        return $this->from('aimaina@syqscode.com')->view('mails.newsletter')->text('mails.newsletter_text')->with(['target'=>$this->target,'unverif'=>$this->unlink]);
+        return $this->from('aimaina@syqscode.com')->view('mails.newsletter')->text('mails.newsletter_text')->with(['target'=>$this->target,'post'=>$this->post,'unverif'=>$this->unlink]);
     }
 }

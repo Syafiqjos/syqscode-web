@@ -40,20 +40,10 @@ use \App\Subscriber;
 use \App\Post;
 
 if (URL::to('/') == 'http://localhost' || $_SERVER['HTTP_USER_AGENT'] == 'k7ZKh7dlfJHlakd$#311KHlLlLchuhuUhIiiiLLlLIi918301ruhzx79f17z6$63nHKlA38facuh1c7)*as8yd1131fc1;z;') {
-
-    Route::get('/mails/preview/newsletter',function() { return view('mails.newsletter'); });
-
-    Route::get('/mails/newsletter', function(){
-        return view('mails.check');
-    });
-    Route::post('/mails/newsletter','MailController@newsletter');
-
     //COMMENT REPLY PREVIEW
     $this->target = new Subscriber();
     $this->target->name = 'NekoHacker';
-    $this->post = new Post();
-    $this->post->title = 'How to make money without warning and consenquesnses';
-    $this->post->url = '/blog/something-is-wrong-somehow-184818h';
+    $this->post = Post::all()->first();
     $this->fr = new Subscriber();
     $this->fr->name = 'Alecetra';
     $this->content = 'Nope, of course not. you have to do it your self otherwise buy it!';
@@ -62,6 +52,14 @@ if (URL::to('/') == 'http://localhost' || $_SERVER['HTTP_USER_AGENT'] == 'k7ZKh7
     Route::get('/mails/preview/commentreply',function() { return view('mails.commentreply',['post'=>$this->post,'from'=>$this->fr,'target'=>$this->target,'selfcontent'=>$this->selfcontent,'content'=>$this->content,'unverif'=>$this->unverif]); });
 
     $this->linked = 'SOME_CODE';
+
+    Route::get('/mails/preview/newsletter',function() { return view('mails.newsletter',['target'=>'NekoHacker','post'=>$this->post,'unverif'=>'SOME_CODE']); });
+
+    Route::get('/mails/newsletter', function(){
+        return view('mails.check');
+    });
+
+    Route::post('/mails/newsletter','MailController@newsletter');
 
     Route::get('/fpdf','ExtraController@fpdf');
     Route::get('/fpdf/html',function() { return view('fpdf'); });

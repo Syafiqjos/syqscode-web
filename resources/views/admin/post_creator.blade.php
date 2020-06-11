@@ -3,6 +3,7 @@
 <html>
     <form action="/admin/insert-post" method="post">
         @csrf
+        <input type="hidden" name="keywrd" value="B-baka janai no o o  o">
         <label for="url">URL : </label>
         <input type="text" id="url" name="url">
         <br><br>

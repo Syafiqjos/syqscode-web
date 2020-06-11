@@ -8,6 +8,7 @@ use App\Mail\NewsletterVerificationMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Subscriber;
+use App\Post;
 
 class MailController extends Controller
 {
@@ -137,7 +138,9 @@ class MailController extends Controller
 
             $sended_to .= $obj->receiver . ';';
 
-            Mail::to($obj->receiver)->send(new NewsletterMail($obj,$obj->receiver,$val->newsletter_unverif_link));
+            $post = Post::all()->last();
+
+            Mail::to($obj->receiver)->send(new NewsletterMail($obj,$obj->receiver,$post,$val->newsletter_unverif_link));
         }
         return 'All emails sended : '.$sended_to;
     }
