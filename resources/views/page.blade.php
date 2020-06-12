@@ -63,6 +63,11 @@
                             @endphp
                             @foreach($tags as $tag)
                                 @php
+                                    if ($tag == '') {
+                                        continue;
+                                    }
+                                @endphp
+                                @php
                                     $tagn = App\Tag::where('id',$tag[1])->first();
                                 @endphp
                                 @if($tagn)
