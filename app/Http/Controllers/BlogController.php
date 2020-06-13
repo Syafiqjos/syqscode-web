@@ -169,7 +169,8 @@ class BlogController extends Controller
         $post = $po->first();
         if ($po->count() <= 0){
             //Return Default kalo 404
-            return redirect()->route('home');
+            // return redirect()->route('home');
+            return view('errors.404');
         }
 
         $author = Author::where('id',$post->author_id);

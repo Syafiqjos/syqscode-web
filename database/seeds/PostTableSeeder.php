@@ -12,6 +12,7 @@ class PostTableSeeder extends Seeder
      */
     public function run()
     {
+        /*
         Post::create([
             "url" => "/blog/how-to-predit-future-vj8ysddg",
             "title" => "How to predict the future",
@@ -47,5 +48,6 @@ class PostTableSeeder extends Seeder
             "loved"=> 0,
             "visited"=> 0
         ]);
+        */
     }
 }

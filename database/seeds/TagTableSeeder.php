@@ -18,8 +18,23 @@ class TagTableSeeder extends Seeder
         ]);
 
         Tag::create([
+            "name" => "Programming",
+            "url" => "tags/programming"
+        ]);
+
+        Tag::create([
             "name" => "CTFs",
             "url" => "tags/ctfs"
+        ]);
+
+        Tag::create([
+            "name" => "Tutorial",
+            "url" => "tags/tutorial"
+        ]);
+
+        Tag::create([
+            "name" => "LifeHack",
+            "url" => "tags/lifehack"
         ]);
 
         Tag::create([
@@ -28,13 +43,13 @@ class TagTableSeeder extends Seeder
         ]);
 
         Tag::create([
-            "name" => "Coding",
-            "url" => "tags/coding"
+            "name" => "Problem Solving",
+            "url" => "tags/problem-solving"
         ]);
 
         Tag::create([
-            "name" => "Programming",
-            "url" => "tags/programming"
+            "name" => "Hacking",
+            "url" => "tags/hacking"
         ]);
     }
 }

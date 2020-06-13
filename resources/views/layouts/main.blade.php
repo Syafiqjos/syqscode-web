@@ -4,6 +4,14 @@
     <head>
         <meta char="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Syqscode">
+        <meta name="description" content="Website blog dengan postingan seputar teknologi, pemrograman, CTF, tutorial dan life hack yang fokus pada experiment, percobaan dan pemecahan masalah.">
+        <meta name="keywords" content="teknologi,art,ctf,problem solving,programming,coding,experiment,percobaan,tutorial,hack">
+        <meta name="copyright" content="@ 2020 Syqscode">
+        <meta name="geo.placename" content="Indonesia">
+        <meta name="language" content="Bahasa">
+        <meta name="target" content="global">
+
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>
@@ -40,16 +48,26 @@
                     <div class="segment">
                         <h2>Newsletter</h2>
                         <div class="subsegment">
-                            <a href="/subscribe-newsletter"><h3>Subscribe</h3></a>
+                            <a href="/subscribe-newsletter" style="color:rgb(225,225,225)"><h3>Subscribe</h3></a></a>
                         </div>
                     </div>
                     <div class="segment">
                         <h2>Page</h2>
                         <div class="subsegment">
-                            <h3>Homepage</h3>
-                            <h3>About Me</h3>
+                            <a href="/" style="color:rgb(225,225,225);"><h3>Homepage</h3></a>
+                            <a href="/page" style="color:rgb(225,225,225);"><h3>Blog</h3></a>
+                            <a href="/tags" style="color:rgb(225,225,225);"><h3>Tags</h3></a>
+                            <a href="/request" style="color:rgb(225,225,225);"><h3>Request</h3></a>
+                            <a href="/about-us" style="color:rgb(225,225,225);"><h3>About Us</h3></a>
                         </div>
                     </div>
+                    <div class="segment">
+                        <h2>Sponsor</h2>
+                        <div class="subsegment">
+                            <a><img width="100%" src="/lib/sponsor-box.png"></img></a>
+                        </div>
+                    </div>
+                    <br>
                 </div>
             </div>
             <div class="footer">
@@ -57,36 +75,31 @@
                     <div class="footer-part footer-width" style="background-color: rgb(5,5,5);">
                         <h2>Page</h2>
                         <div class="subsegment" style="border-radius: 4px;background-color: rgb(15,15,15);">
-                            <h3 style="width:100%;">Homepage</h3>
-                            <h3 style="width:100%;">Search</h3>
-                            <h3 style="width:100%;">Request</h3>
-                            <h3 style="width:100%;">About Me</h3>
+                            <a style="color:white;" href="/"><h3 style="width:100%;">Homepage</h3></a>
+                            <a style="color:white;" href="/subscribe-newsletter"><h3 style="width:100%;">Subscribe Newsletter</h3></a>
+                            <a style="color:white;" href="/page"><h3 style="width:100%;">Blog</h3></a>
+                            <a style="color:white;" href="/tags"><h3 style="width:100%;">Tags</h3></a>
+                            <a style="color:white;" href="/about-us"><h3 style="width:100%;">About Us</h3></a>
                         </div>
                     </div>
                     <div class="footer-part footer-width" style="background-color: rgb(15,15,15);">
                         <h2>Contact</h2>
                         <div class="subsegment" style="border-radius: 4px;background-color: rgb(25,25,25);">
-                            <h3 style="width:100%;">Instagram</h3>
-                            <h3 style="width:100%;">Line</h3>
+                            <a style="color:white;" href="/request"><h3 style="width:100%;">Direct Request</h3></a>
+                            <a style="color:white;" href="mailto:admin@syqscode.com"><h3 style="width:100%;">Email : admin@syqscode.com</h3></a>
+                            <a target="_blank" rel="noopener noreferrer" style="color:white;" href="https://www.instagram.com/syqscode/"><h3 style="width:100%;">Instagram : @syqscode</h3></a>
+                            <h3 style="width:100%;">Line : syafiqnd</h3>
                         </div>
                     </div>
                     <div class="footer-part footer-width" style="background-color: rgb(25,25,25);">
-                        <h2>About Me</h2>
+                        <h2>About Us</h2>
                         <div class="subsegment-no-hover" style="border-radius: 4px;background-color: rgb(35,35,35);">
                             <h3 style="width:80%;">
-                                Syqsterr, Alecetra @ Syqscode
-                                <br><br><br>
-                                Member of Departement
-                                <br><br>
-                                Love Technologies
-                                <br><br>
-                                Like Experiment
-                                <br><br>
-                                Love Aimaina and 2D
-                                <br><br>
-                                Love PinoccioP, Mili, NekoHacker and Nanahira
-                                <br><br><br>
-                                No pHotoSs
+                                <p style="margin-bottom: 32px;">Syqsterr, Alecetra @ Syqscode</p>
+                                <p style="margin-bottom: 32px;">Member of Departement</p>
+                                <p style="margin-bottom: 32px;">Love Technologies</p>
+                                <p style="margin-bottom: 32px;">Like Experiment</p>
+                                <p style="margin-bottom: 32px;">Contact [ADMIN] anytime.</p>
                             </h3>
                         </div>
                     </div>

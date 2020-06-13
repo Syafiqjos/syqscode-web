@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Mail\NewsletterMail;
 use App\Mail\NewsletterVerificationMail;
+use App\Mail\RequestMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Subscriber;
@@ -185,5 +186,23 @@ class MailController extends Controller
         } else {
             return redirect('/');
         }
+    }
+
+    public function request(Request $request){
+        if ($request->exists('email') && $request->exists('request')){
+            if ($request->get('email') == ''){
+                return view('request',['status'=>'kosongan']);
+            } else if ($request->get('request') == ''){
+                return view('request',['status'=>'reqkosongan']);
+            }
+
+            $obj = new \stdClass();
+            $obj->sender = 'aimaina@syqscode.com';
+            $obj->receiver = 'admin@syqscode.com';
+
+            Mail::to($obj->receiver)->send(new RequestMail($obj,$request->get('email'),$request->get('request')));
+            return view('request',['status'=>'hai']);
+        }
+        return view('request',['status'=>'nodgut']);
     }
 }

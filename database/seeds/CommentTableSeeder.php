@@ -12,6 +12,7 @@ class CommentTableSeeder extends Seeder
      */
     public function run()
     {
+        /*
         Comment::create([
             "post_id" => 1,
             "replied_to" => 0,
@@ -67,5 +68,6 @@ class CommentTableSeeder extends Seeder
             "email" => "krosis@gmail.com",
             "content" => "Maontera ??"
         ]);
+        */
     }
 }

@@ -35,6 +35,11 @@ class PageController extends Controller
         return view('page',['page'=>$page,'ppage'=>$len,'posts'=>$posts]);
     }
 
+    public function tags_collection(Request $request){
+        $tags = Tag::all()->sortBy('name');
+        return view('tags',['tags'=>$tags]);
+    }
+
     public function tags(Request $request, $url, $page){
         if ($page < 0){
             $page = '0';
@@ -53,7 +58,7 @@ class PageController extends Controller
 
         $tag_id = Tag::where('url','tags/'.$url);
         if ($tag_id->count() <= 0){
-            return 'no post 404';
+            return view('errors.404',['message'=>'Maaf tag ini tidak tersedia.']);
         }
         $tag_id = $tag_id->first()->id;
 

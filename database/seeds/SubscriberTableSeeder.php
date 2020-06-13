@@ -12,6 +12,7 @@ class SubscriberTableSeeder extends Seeder
      */
     public function run()
     {
+        /*
         Subscriber::create([
             "name" => "Joshe",
             "email" => "syafiqjos@gmail.com",
@@ -31,5 +32,6 @@ class SubscriberTableSeeder extends Seeder
             "name" => "Osechan",
             "email" => "syafiqjoschannel@gmail.com",
         ]);
+        */
     }
 }

@@ -87,7 +87,7 @@
 </div>
 <div class="logo-title-mini logo-title-small">
     <div class="title-divider">
-        <h1 v-on:click="anim_encode()" style="margin:0px;font-size: 40px;"> [@{{title}}] </h1>
+        <a href="/" style="color:rgb(192,192,192);"><h1 v-on:click="anim_encode()" style="margin:0px;font-size: 40px;"> [@{{title}}] </h1></a>
         <div class="main-links-shrinked">
             <a class="header-link" href="/tags/technologies"><h2 style="padding-left: 20px;padding-right: 20px;">Technologies</h2></a>
             <a class="header-link" href="/tags/coding"><h2 style="padding-left: 20px;padding-right: 20px;">Coding</h2></a>
@@ -120,7 +120,7 @@
                 <div style="display:block;width:100%;" >
                     <h3 style="width:100%;margin-top:32px;padding-top:10px;font-size: 24px;" align="center">@{{jadigimana}}</h3>
                     <p style="width:100%;margin-left:0px;margin-right:0px;margin-top:-8px;margin-bottom:18px;letter-spacing:1px;text-align:center;" align="center">@{{tambahin}}<p>
-                    <img id="lov" align="center" src="/lib/logo-icon.png" style="display:block;width:60px;margin-left:auto;margin-right:auto;padding-left:0px;padding-right:0px;"></img>
+                    <img id="lov" align="center" src="/lib/loved.png" style="display:block;width:60px;margin-left:auto;margin-right:auto;padding-left:0px;padding-right:0px;"></img>
                 </div>
             </div>
         </div>
@@ -130,7 +130,7 @@
                 <img src="{{$author->profpic}}" class="author-image"></img>
                 <div style="display:block;" >
                     <h3 style="width:100%;margin-top:20px;margin-left:20px;padding-top:10px;font-size: 24px;" align="left">@php echo $author->richname; @endphp</h3>
-                    <p style="margin-left:20px;padding:2px;margin-top:-8px;margin-bottom:18px;letter-spacing:1px;" align="left">@php echo $author->description; @endphp<p>
+                    <p style="margin-left:20px;padding:2px;margin-top:-8px;margin-bottom:18px;letter-spacing:1px;" align="justify">@php echo $author->description; @endphp<p>
                 </div>
             </div>
         </div>

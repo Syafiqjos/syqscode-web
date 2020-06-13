@@ -14,26 +14,26 @@
                 <h1 v-on:click="anim_encode()" class="logo-title logo-title-big" style="margin:0px;"> [@{{title}}] </h1>
             </div>
             <div class="main-links" align="center">
-                <span class="sub-links"><a href="blog/gta">Technologies</a></span>
-                <span class="sub-links"><a href="blog/san">Coding</a></span>
-                <span class="sub-links"><a href="blog/san">Programming</a></span>
-                <span class="sub-links"><a href="blog/san">CTFs</a></span>
-                <span class="sub-links"><a href="blog/san">Tutorial</a></span>
-                <span class="sub-links"><a href="blog/san">About Me</a></span>
+                <span class="sub-links"><a href="tags/technologies">Technologies</a></span>
+                <span class="sub-links"><a href="tags/programming">Programming</a></span>
+                <span class="sub-links"><a href="tags/ctfs">CTFs</a></span>
+                <span class="sub-links"><a href="tags/lifehack">LifeHack</a></span>
+                <span class="sub-links"><a href="tags/tutorial">Tutorial</a></span>
+                <span class="sub-links"><a href="about-us">About Us</a></span>
             </div>
         </div>
         <div class="welcome-desc"><h2 style="color: white;font-family: 'SquareFont';letter-spacing:4px;">@{{desc}}</h2></div>
     @else
         <div class="logo-title-mini logo-title-small">
             <div class="title-divider">
-                <h1 v-on:click="anim_encode()" style="margin:0px;font-size: 40px;"> [@{{title}}] </h1>
+                <a href="/" style="color:rgb(192,192,192);"><h1 v-on:click="anim_encode()" style="margin:0px;font-size: 40px;"> [@{{title}}] </h1></a>
                 <div class="main-links-shrinked">
                     <a class="header-link" href="/tags/technologies"><h2 style="padding-left: 20px;padding-right: 20px;">Technologies</h2></a>
-                    <a class="header-link" href="/tags/coding"><h2 style="padding-left: 20px;padding-right: 20px;">Coding</h2></a>
                     <a class="header-link" href="/tags/programming"><h2 style="padding-left: 20px;padding-right: 20px;">Programming</h2></a>
                     <a class="header-link" href="/tags/ctfs"><h2 style="padding-left: 20px;padding-right: 20px;">CTFs</h2></a>
+                    <a class="header-link" href="/tags/lifehack"><h2 style="padding-left: 20px;padding-right: 20px;">LifeHack</h2></a>
                     <a class="header-link" href="/tags/tutorial"><h2 style="padding-left: 20px;padding-right: 20px;">Tutorial</h2></a>
-                    <a class="header-link" href="/about-me"><h2 style="padding-left: 20px;padding-right: 20px;">About Me</h2></a>
+                    <a class="header-link" href="/about-us"><h2 style="padding-left: 20px;padding-right: 20px;">About Us</h2></a>
                 </div>
             </div>
         </div>

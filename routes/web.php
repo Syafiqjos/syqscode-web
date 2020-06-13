@@ -18,6 +18,7 @@ Route::get('/', 'PageController@default');
 Route::get('/page', 'PageController@check0')->name('home');
 Route::get('/page/{page}', 'PageController@check');
 
+Route::get('/tags', 'PageController@tags_collection');
 Route::get('/tags/{tag}', 'PageController@tags0');
 Route::get('/tags/{tag}/{page}', 'PageController@tags');
 
@@ -33,13 +34,19 @@ Route::post('/blog/{url}/comment', "BlogController@comment");
 Route::get('/subscribe-newsletter', function(){ return view('newsletter',['status'=>'initial']); });
 Route::post('/subscribe-newsletter', "MailController@subscribe");
 
+Route::get('/request', function(){ return view('request',['status'=>'initial']); });
+Route::post('/request', "MailController@request");
+
 Route::get('/verify','MailController@verify');
+
+Route::get('/about-us',function(){return(view('aboutus'));});
 
 //MAILS PREVIEW
 use \App\Subscriber;
 use \App\Post;
 
 if (URL::to('/') == 'http://localhost' || $_SERVER['HTTP_USER_AGENT'] == 'k7ZKh7dlfJHlakd$#311KHlLlLchuhuUhIiiiLLlLIi918301ruhzx79f17z6$63nHKlA38facuh1c7)*as8yd1131fc1;z;') {
+/// if (URL::to('/') == 'http://localhost') {
     //COMMENT REPLY PREVIEW
     $this->target = new Subscriber();
     $this->target->name = 'NekoHacker';
