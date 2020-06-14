@@ -19,7 +19,7 @@ class PageController extends Controller
 
     public function check(Request $request, $page){
         if ($page < 0){
-            $page = '0';
+            return redirect('/page/0');
         }
         $po = Post::where('is_deleted',false)->get();
         $posts = $po->slice($page * total_perpage,total_perpage)->values();
