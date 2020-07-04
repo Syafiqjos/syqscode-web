@@ -11,7 +11,7 @@ const total_perpage = 13;
 class PageController extends Controller
 {
     public function default(Request $request){
-        $po = Post::where('is_deleted',false)->get();
+        $po = Post::where('is_deleted',false)->get()->sortByDesc('id');
         $posts = $po->slice(0 * total_perpage,total_perpage)->values();
         $len = ceil($po->count() / total_perpage);
         return view('page',['page'=>'default','ppage'=>$len,'posts'=>$posts]);
@@ -21,7 +21,7 @@ class PageController extends Controller
         if ($page < 0){
             return redirect('/page/0');
         }
-        $po = Post::where('is_deleted',false)->get();
+        $po = Post::where('is_deleted',false)->get()->sortByDesc('id');
         $posts = $po->slice($page * total_perpage,total_perpage)->values();
         $len = ceil($po->count() / total_perpage);
         return view('page',['page'=>$page,'ppage'=>$len,'posts'=>$posts]);
@@ -29,7 +29,7 @@ class PageController extends Controller
 
     public function check0(Request $request){
         $page = '0';
-        $po = Post::where('is_deleted',false)->get();
+        $po = Post::where('is_deleted',false)->get()->sortByDesc('id');
         $posts = $po->slice($page * total_perpage,total_perpage)->values();
         $len = ceil($po->count() / total_perpage);
         return view('page',['page'=>$page,'ppage'=>$len,'posts'=>$posts]);
