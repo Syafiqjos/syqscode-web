@@ -89,12 +89,12 @@
     <div class="title-divider">
         <a href="/" style="color:rgb(192,192,192);"><h1 v-on:click="anim_encode()" style="margin:0px;font-size: 40px;"> [@{{title}}] </h1></a>
         <div class="main-links-shrinked">
-            <a class="header-link" href="/tags/technologies"><h2 style="padding-left: 20px;padding-right: 20px;">Technologies</h2></a>
-            <a class="header-link" href="/tags/coding"><h2 style="padding-left: 20px;padding-right: 20px;">Coding</h2></a>
+            <a class="header-link" href="/tags/web"><h2 style="padding-left: 20px;padding-right: 20px;">Web</h2></a>
             <a class="header-link" href="/tags/programming"><h2 style="padding-left: 20px;padding-right: 20px;">Programming</h2></a>
             <a class="header-link" href="/tags/ctfs"><h2 style="padding-left: 20px;padding-right: 20px;">CTFs</h2></a>
+            <a class="header-link" href="/tags/lifehack"><h2 style="padding-left: 20px;padding-right: 20px;">LifeHack</h2></a>
             <a class="header-link" href="/tags/tutorial"><h2 style="padding-left: 20px;padding-right: 20px;">Tutorial</h2></a>
-            <a class="header-link" href="/about-me"><h2 style="padding-left: 20px;padding-right: 20px;">About Me</h2></a>
+            <a class="header-link" href="/about-us"><h2 style="padding-left: 20px;padding-right: 20px;">About Us</h2></a>
         </div>
     </div>
 </div>
@@ -112,6 +112,7 @@
     <h2 style="font-size: 18px;background-color: rgb(55,25,25);padding:2px;"><i>"{{$post->description}}"</i></h2>
     <div class="blog-body">
         <h3 style="margin-top: 0px;margin-bottom:32px;font-size:16px;color:rgb(180,180,180);">Log : Ditulis oleh {{$author->username}}; {{$post->created_at}}</h3>
+        <img src="{{$post->cover}}"></img>
         @php
             echo $post->content;
         @endphp

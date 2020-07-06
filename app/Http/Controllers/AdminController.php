@@ -153,4 +153,8 @@ class AdminController extends Controller
         fwrite($file,$link.PHP_EOL);
         fclose($file);
     }
+
+    public function code_rasterizer(){
+        return view('admin.code_rasterizer');
+    }
 }

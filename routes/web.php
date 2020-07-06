@@ -80,6 +80,8 @@ if (URL::to('/') == 'http://localhost' || $_SERVER['HTTP_USER_AGENT'] == 'k7ZKh7
     Route::post('/admin/update-post','AdminController@update_post');
 
     Route::get('/admin/update-sitemap','AdminController@update_sitemap');
+
+    Route::get('/admin/code-rasterizer','AdminController@code_rasterizer');
 }
 
 Route::get('/admin/open-sitemap','AdminController@open_sitemap');

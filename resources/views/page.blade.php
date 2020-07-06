@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    Syqscode
+    Syqscode - Koleksi Tutorial dan Eksperimen Dunia Coding
 @endsection
 
 @section('header')
@@ -14,7 +14,7 @@
                 <h1 v-on:click="anim_encode()" class="logo-title logo-title-big" style="margin:0px;"> [@{{title}}] </h1>
             </div>
             <div class="main-links" align="center">
-                <span class="sub-links"><a href="tags/technologies">Technologies</a></span>
+                <span class="sub-links"><a href="tags/web">Web</a></span>
                 <span class="sub-links"><a href="tags/programming">Programming</a></span>
                 <span class="sub-links"><a href="tags/ctfs">CTFs</a></span>
                 <span class="sub-links"><a href="tags/lifehack">LifeHack</a></span>

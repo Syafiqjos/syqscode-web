@@ -5,7 +5,7 @@
     <div class="title-divider">
         <a href="/" style="color:rgb(192,192,192);"><h1 v-on:click="anim_encode()" style="margin:0px;font-size: 40px;"> [@{{title}}] </h1></a>
         <div class="main-links-shrinked">
-            <a class="header-link" href="/tags/technologies"><h2 style="padding-left: 20px;padding-right: 20px;">Technologies</h2></a>
+            <a class="header-link" href="/tags/web"><h2 style="padding-left: 20px;padding-right: 20px;">Web</h2></a>
             <a class="header-link" href="/tags/programming"><h2 style="padding-left: 20px;padding-right: 20px;">Programming</h2></a>
             <a class="header-link" href="/tags/ctfs"><h2 style="padding-left: 20px;padding-right: 20px;">CTFs</h2></a>
             <a class="header-link" href="/tags/lifehack"><h2 style="padding-left: 20px;padding-right: 20px;">LifeHack</h2></a>
